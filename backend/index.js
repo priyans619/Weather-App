@@ -2,10 +2,20 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
+import cors from "cors";
 import connectDB from "./config/db.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
 
 const app = express();
+
+// setting cors for unique url
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // Connect to DB
 connectDB();
