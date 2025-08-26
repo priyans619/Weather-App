@@ -1,13 +1,36 @@
-// src/components/WeatherCard.jsx
+
 import { useWeather } from "../context/WeatherContext";
+import { addCity as addCityApi } from "../api/citiesApi";
+import { useState } from "react";
 
 const WeatherCard = () => {
   const { weather } = useWeather();
+  const [saving, setSaving] = useState(false);
+  const [savedMsg, setSavedMsg] = useState("");
+
+  if (!weather) return null;
+
+  const name = weather.name;             
+  const country = weather.sys?.country || "";
+
+  const handleSave = async () => {
+    try {
+      setSaving(true);
+      await addCityApi(name, country);
+      setSavedMsg("City saved!");
+      setTimeout(() => setSavedMsg(""), 1500);
+    } catch (e) {
+      setSavedMsg("Already saved");
+      setTimeout(() => setSavedMsg(""), 1500);
+    } finally {
+      setSaving(false);
+    }
+  };
 
   if (!weather) return null;
 
   return (
-    <div className="max-w-lg sm:mx-auto bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg rounded-md p-7 mt-8 mx-4 text-white">
+    <div className="max-w-lg sm:mx-auto bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg rounded-md p-5 mt-1 mx-4 text-white">
       <div className="flex justify-between w-full">
         {/* Left side */}
         <div className="w-1/2 my-4 mx-auto flex justify-between items-center">
@@ -62,6 +85,16 @@ const WeatherCard = () => {
           </div>
         </div>
       </div>
+      <div className=" flex items-center gap-3">
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="px-4 py-2 rounded-md bg-white/20 hover:bg-white/30 transition disabled:opacity-50"
+          >
+            {saving ? "Saving..." : "Save this City"}
+          </button>
+          {savedMsg && <span className="text-sm opacity-80">{savedMsg}</span>}
+        </div>
     </div>
   );
 };
