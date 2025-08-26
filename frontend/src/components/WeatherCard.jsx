@@ -1,6 +1,6 @@
 
 import { useWeather } from "../context/WeatherContext";
-import { addCity as addCityApi } from "../api/citiesApi";
+import { useCities } from "../context/CitiesContext";
 import { useState } from "react";
 import Clear from "../assets/Clear.png";
 import Cloudy from "../assets/Cloudy.png";
@@ -9,6 +9,7 @@ import Haze from "../assets/Haze.png";
 
 const WeatherCard = () => {
   const { weather } = useWeather();
+  const { saveCity } = useCities();
   const [saving, setSaving] = useState(false);
   const [savedMsg, setSavedMsg] = useState("");
 
@@ -20,7 +21,7 @@ const WeatherCard = () => {
   const handleSave = async () => {
     try {
       setSaving(true);
-      await addCityApi(name, country);
+      await saveCity(name, country);
       setSavedMsg("City saved!");
       setTimeout(() => setSavedMsg(""), 1500);
     } catch (e) {
@@ -31,7 +32,6 @@ const WeatherCard = () => {
     }
   };
 
-  // background image
   const getBackgroundImage = () => {
     if (!weather.weather) return "";
     const condition = weather.weather[0].main;
@@ -116,7 +116,7 @@ const WeatherCard = () => {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="px-4 py-2 text-black rounded-md bg-white/40 hover:bg-white/70 transition disabled:opacity-50 border-2 border-black"
+          className="px-4 py-2 text-black rounded-md bg-white/40 hover:bg-white/70 transition disabled:opacity-50 border-2 border-black w-36 text-center"
         >
           {saving ? "Saving..." : "Save this City"}
         </button>
@@ -128,4 +128,3 @@ const WeatherCard = () => {
 };
 
 export default WeatherCard;
-
