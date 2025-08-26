@@ -1,9 +1,9 @@
-// src/api/weatherApi.js
+
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/weather";
+const API_BASE = "https://weather-api-ekk8.onrender.com/api/weather";
 
-// Fetch current weather by city
+// current weather by city
 export const getCurrentWeather = async (city) => {
   const response = await axios.get(`${API_BASE}/current`, {
     params: { city },
