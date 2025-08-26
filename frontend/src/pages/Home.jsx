@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+
 import SearchBar from "../components/SearchBar";
 import WeatherCard from "../components/WeatherCard";
 import Forecast from "../components/Forecast";
@@ -9,7 +9,7 @@ const Home = () => {
   const { loading, error } = useWeather();
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-sky-950 to-blue-900 text-white px-4 py-6">
+    <div className="w-full min-h-screen bg-gradient-to-br from-sky-950 to-blue-100 text-white px-4 py-6">
       <h1 className="text-3xl text-center text-black font-semibold">
         WEATHER APPLICATION
       </h1>
@@ -18,7 +18,7 @@ const Home = () => {
 
       <div className="h-6 flex items-center justify-center">
         {loading && <p className="text-gray-300">Loading...</p>}
-        {error && <p className="text-red-400">{error}</p>}
+        {error && <p className="text-red-800 text-2xl mt-2">{error}</p>}
       </div>
 
       {/* Weather & Forecast parallel layout */}
