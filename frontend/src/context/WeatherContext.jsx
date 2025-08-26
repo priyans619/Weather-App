@@ -1,4 +1,4 @@
-// src/context/WeatherContext.js
+
 import { createContext, useContext, useState } from "react";
 import { getCurrentWeather, getForecast } from "../api/weatherApi";
 
@@ -21,7 +21,7 @@ export const WeatherProvider = ({ children }) => {
       setWeather(current);
       setForecast(forecastData.list);
     } catch (err) {
-      setError("Failed to fetch weather data");
+      setError("Failed to fetch weather data !!");
     } finally {
       setLoading(false);
     }
