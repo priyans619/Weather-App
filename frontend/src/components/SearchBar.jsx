@@ -17,20 +17,22 @@ const SearchBar = () => {
   return (
     <div className="text-center px-4 md:px-8 py-4 md:py-8">
       <div className="relative w-full md:w-[700px] mx-auto">
-        
-        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-gray-400">
-          <FiSearch size={20} />
+        {/* Icon */}
+        <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-gray-400">
+          <FiSearch size={22} />
         </div>
 
+        {/* Input */}
         <input
           type="text"
-          placeholder="Enter Location..."
+          placeholder="Search for a city..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-          className="py-2 pl-10 pr-3 w-full text-lg rounded-3xl
-            border border-gray-200 text-gray-600 placeholder:text-gray-400
-            focus:outline-none bg-white shadow-md"
+          className="py-2 pl-12 pr-4 w-full text-lg rounded-3xl
+           border border-gray-200 text-gray-600 placeholder:text-gray-400
+           focus:outline-none bg-white shadow-md
+           focus:ring-2 focus:ring-blue-400 transition duration-200"
         />
       </div>
     </div>
