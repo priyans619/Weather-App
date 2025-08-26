@@ -1,4 +1,4 @@
-// src/components/Forecast.jsx
+
 import { useWeather } from "../context/WeatherContext";
 
 const Forecast = () => {
@@ -8,13 +8,13 @@ const Forecast = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="p-1 rounded-xl text-black w-full max-w-lg mt-6">
+      <div className="p-1 rounded-xl text-black w-full max-w-lg">
         <h2 className="text-2xl bg-white bg-opacity-25 rounded-md p-2 font-semibold mb-3 text-center">
           5-Day Forecast
         </h2>
         <div className="flex flex-col gap-1">
           {forecast
-            .filter((_, index) => index % 8 === 0) // pick 1 item per day (every 8th, since data is 3-hourly)
+            .filter((_, index) => index % 8 === 0)
             .slice(0, 5)
             .map((item, index) => (
               <div
