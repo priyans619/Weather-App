@@ -12,14 +12,21 @@ connectDB();
 // setting cors for unique url
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://weather-app-fik2-id1wjej2b-priyans619s-projects.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
-
 app.use(express.json());
+
+// (health check)
+app.get("/", (req, res) => {
+  res.send("✅ Weather API backend is running...");
+});
 
 // Main API route to connect to backend
 app.use("/api/weather", weatherRoutes);
