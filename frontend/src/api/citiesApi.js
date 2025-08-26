@@ -1,6 +1,6 @@
 // src/api/citiesApi.js
 import axios from "axios";
-const API_BASE = "http://localhost:5000/api/cities";
+const API_BASE = "https://weather-api-ekk8.onrender.com/api/cities";
 
 export const getCities = async () => {
   const { data } = await axios.get(API_BASE);
