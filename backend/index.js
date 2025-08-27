@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://weather-app-fik2-id1wjej2b-priyans619s-projects.vercel.app",
+      "https://weather-app-fik2.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
