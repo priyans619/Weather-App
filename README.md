@@ -132,7 +132,7 @@ Example- https://weather-api-ekk8.onrender.com/api/weather/current?city=delhi
 
 | Method | Endpoint        | Description                | Example / Body                        |
 |--------|-----------------|----------------------------|---------------------------------------|
-| GET    | /weather?city=  | Get current weather by city | /weather?city=Delhi                   |
+| GET    | /current?city=  | Get current weather by city | /current?city=Delhi                   |
 | GET    | /forecast?city= | Get forecast by city        | /forecast?city=Delhi                  |
 | GET    | /cities         | Get all saved cities        | —                                     |
 | POST   | /cities         | Add a new city              | { "name": "Delhi", "country": "IN" }  |
