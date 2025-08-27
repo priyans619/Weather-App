@@ -124,7 +124,7 @@ Base URL- https://weather-api-ekk8.onrender.com/
 
 Backend endpoint: https://weather-api-ekk8.onrender.com/api
 
-Example- https://weather-api-ekk8.onrender.com/api/weather?city=delhi
+Example- https://weather-api-ekk8.onrender.com/api/weather/current?city=delhi
 (This endpoint will return JSON data for Delhi)
 ```
 
