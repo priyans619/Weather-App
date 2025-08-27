@@ -6,7 +6,7 @@ A full-stack weather application built with React (frontend), Node.js + Express 
 ```
 Backend → deployed on Render - https://weather-api-ekk8.onrender.com/
 
-Frontend → deployed on Vercel -https://weather-app-fik2-id1wjej2b-priyans619s-projects.vercel.app/
+Frontend → deployed on Vercel -https://weather-app-fik2.vercel.app/
 ```
 
 
@@ -130,14 +130,13 @@ Example- https://weather-api-ekk8.onrender.com/api/weather/current?city=delhi
 
 ### All Endpoints
 
-| Method        | Endpoint       | Description            | Body Example                         |   |
-|---------------|----------------|------------------------|--------------------------------------|---|
-| GET           | /cities        | Get all saved cities   | —                                    |   |
-| POST          | /cities        | Add a new city         | { "name": "Delhi", "country": "IN" } |   |
-| DELETE        | /cities/:id    | Delete a city by ID    | —                                    |   |
-| ☁️ Weather API |                |                        |                                      |   |
-| Method        | Endpoint       | Description            | Query Example                        |   |
-| GET           | /weather?city= | Get weather for a city | /weather?city=Delhi                  |   |
+| Method | Endpoint        | Description                | Example / Body                        |
+|--------|-----------------|----------------------------|---------------------------------------|
+| GET    | /weather?city=  | Get current weather by city | /weather?city=Delhi                   |
+| GET    | /forecast?city= | Get forecast by city        | /forecast?city=Delhi                  |
+| GET    | /cities         | Get all saved cities        | —                                     |
+| POST   | /cities         | Add a new city              | { "name": "Delhi", "country": "IN" }  |
+| DELETE | /cities/:id     | Delete a city by ID         | —                                     |                |   |
 
 
 
